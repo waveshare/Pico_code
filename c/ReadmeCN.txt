@@ -1,0 +1,157 @@
+/*****************************************************************************
+* | File      	:   Readme_CN.txt
+* | Author      :   
+* | Function    :   Help with use
+* | Info        :
+*----------------
+* |	This version:   V1.0
+* | Date        :   2021-02-04
+* | Info        :   在这里提供一个中文版本的使用文档，以便你的快速使用
+******************************************************************************/
+这个文件是帮助您使用本例程。
+由于我们的LCD越来越多，不便于我们的维护，因此把所有的LCD程序做成一个工程。
+在这里简略的描述本工程的使用：
+
+1.基本信息：
+本例程使用相对应的模块搭配Pico进行了验证，你可以在工程的examples\中查看对应的测试例程;
+
+2.管脚连接：
+
+管脚连接你可以在\lib\Config目录下查看DEV_Config.c/h中查看，这里也再重述一次：
+LCD 1.14 
+LCD    =>    Pico
+VCC    ->    VSYS
+GND    ->    GND
+DIN    ->    11
+CLK    ->    10
+CS     ->    9
+DC     ->    8
+RST    ->    12
+BL     ->    13
+
+
+LCD 1.3 
+LCD    =>    Pico
+VCC    ->    VSYS
+GND    ->    GND
+DIN    ->    11
+CLK    ->    10
+CS     ->    9
+DC     ->    8
+RST    ->    12
+BL     ->    13
+A       ->   15
+B       ->    17
+X       ->    19
+Y       ->    21
+UP     ->    2
+DOWM ->    18
+LEFT   ->    16
+RIGHT ->    20
+CTRL  ->    3
+
+
+OLED 1.3
+OLED    =>    Pico
+VCC    ->    VSYS
+GND    ->    GND
+DIN    ->    11
+CLK    ->    10
+CS     ->    9
+DC     ->    8
+RST    ->    12
+
+LCD 1.44 
+LCD    =>    Pico
+VCC    ->    VSYS
+GND    ->    GND
+DIN    ->    11
+CLK    ->    10
+CS     ->    9
+DC     ->    8
+RST    ->    12
+BL     ->    13
+
+LCD 1.8 
+LCD    =>    Pico
+VCC    ->    VSYS
+GND    ->    GND
+DIN    ->    11
+CLK    ->    10
+CS     ->    9
+DC     ->    8
+RST    ->    12
+BL     ->    13
+
+OLED 2.23
+OLED    =>    Pico
+VCC    ->    VSYS
+GND    ->    GND
+DIN    ->    11
+CLK    ->    10
+CS     ->    9
+DC     ->    8
+RST    ->    12
+SDA    ->	 6
+SCL ->      7
+
+LCD 2 
+LCD    =>    Pico
+VCC    ->    VSYS
+GND    ->    GND
+DIN    ->    11
+CLK    ->    10
+CS     ->    9
+DC     ->    8
+RST    ->    12
+BL     ->    13
+KEY0  ->   15
+KEY1  ->    17
+KEY2  ->    2
+KEY3  ->    3
+3.基本使用：
+你需要执行：
+    如果目录已经存在，则可以直接进入。 如果没有目录，执行:
+         mkdir build
+    进入目录，并添加SDK:
+         cd build
+         export PICO_SDK_PATH=../../pico-sdk
+     其中 ../../pico-sdk 是你的SDK的目录。
+     执行cmake，自动生成Makefile文件:
+         cmake ..
+     执行make生成可执行文件，然后在终端中输入：
+         make
+     编译好的uf2文件复制到pico中即可
+
+4.目录结构（选读）：
+如果你经常使用我们的产品，对我们的程序目录结构会十分熟悉，关于具体的函数的我们有一份
+函数的API手册，你可以在我们的WIKI上下载或像售后客服索取，这里简单介绍一次：
+\lib\Config\:此目录为硬件接口层文件，在DEV_Config.c(.h)可以看到很多定义，包括：
+    数据类型;
+    GPIO;
+    读写GPIO;
+    延时：注意：此延时函数并未使用示波器测量具体数值,因此会不准;
+    模块初始化与退出的处理：
+        void DEV_Module_Init(void);
+        void DEV_Module_Exit(void);
+        
+        
+\lib\GUI\:此目录为一些基本的图像处理函数，在GUI_Paint.c(.h)中：
+    常用图像处理：创建图形、翻转图形、镜像图形、设置像素点、清屏等;
+    常用画图处理：画点、线、框、圆、中文字符、英文字符、数字等;
+    常用时间显示：提供一个常用的显示时间函数;
+    常用显示图片：提供一个显示图片的函数;
+    
+\lib\Fonts\:为一些常用的字体：
+    Ascii:
+        font8: 5*8 
+        font12: 7*12
+        font16: 11*16 
+        font20: 14*20 
+        font24: 17*24
+    中文：
+        font12CN: 16*21 
+        font24CN: 32*41
+        
+\lib\e-paper\:此目录下为LCD驱动函数;
+examples\:此目录下为LCD的测试程序，你可在其中看到具体的使用方法;
