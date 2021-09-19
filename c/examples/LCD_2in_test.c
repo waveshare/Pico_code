@@ -28,7 +28,7 @@
 #
 ******************************************************************************/
 #include "EPD_Test.h"
-#include "LCD_2IN.h"
+#include "LCD_2in.h"
 
 bool reserved_addr(uint8_t addr) {
 return (addr & 0x78) == 0 || (addr & 0x78) == 0x78;
