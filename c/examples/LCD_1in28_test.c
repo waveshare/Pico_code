@@ -36,18 +36,25 @@ return (addr & 0x78) == 0 || (addr & 0x78) == 0x78;
 
 int LCD_1in28_test(void)
 {
-
     DEV_Delay_ms(100);
     printf("LCD_1in28_test Demo\r\n");
-    if(DEV_Module_Init()!=0){
+
+    if (DEV_Module_Init() != 0) {
         return -1;
     }
+
     DEV_SET_PWM(50);
     /* LCD Init */
     printf("1.28inch LCD demo...\r\n");
     LCD_1IN28_Init(HORIZONTAL);
     LCD_1IN28_Clear(WHITE);
 
+    /* Turn backlight on */
+    EPD_BL_PIN = 25;
+    DEV_GPIO_Mode(EPD_BL_PIN, GPIO_OUT);
+    DEV_Digital_Write(EPD_CS_PIN, 1);
+    DEV_Digital_Write(EPD_DC_PIN, 0);
+    DEV_Digital_Write(EPD_BL_PIN, 1);
     //LCD_SetBacklight(1023);
     UDOUBLE Imagesize = LCD_1IN28_HEIGHT*LCD_1IN28_WIDTH*2;
     UWORD *BlackImage;
