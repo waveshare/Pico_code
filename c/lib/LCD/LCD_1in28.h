@@ -1,5 +1,5 @@
 /*****************************************************************************
-* | File        :   LCD_1in54.c
+* | File        :   LCD_1in28.c
 * | Author      :   Waveshare team, Julianno F. C. Silva (@juliannojungle)
 * | Function    :   Hardware underlying interface
 * | Info        :
