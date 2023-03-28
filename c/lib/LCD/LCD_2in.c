@@ -11,7 +11,7 @@
 * | Info        :   Basic version
 *
 ******************************************************************************/
-#include "LCD_2IN.h"
+#include "LCD_2in.h"
 #include "DEV_Config.h"
 
 #include <stdlib.h>		//itoa()
