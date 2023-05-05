@@ -28,7 +28,7 @@
 #
 ******************************************************************************/
 #include "EPD_Test.h"
-#include "LCD_2IN.h"
+#include "LCD_2in.h"
 
 bool reserved_addr(uint8_t addr) {
 return (addr & 0x78) == 0 || (addr & 0x78) == 0x78;
@@ -88,7 +88,7 @@ int LCD_2in_test(void)
 
     Paint_DrawNum (50, 40 ,9.87654321, &Font20,5,  WHITE,  BLACK);
     Paint_DrawString_EN(1, 40, "ABC", &Font20, 0x000f, 0xfff0);
-    Paint_DrawString_CN(1,60, "»¶Ó­Ê¹ÓÃ",  &Font24CN, WHITE, BLUE);
+    Paint_DrawString_CN(1,60, "ï¿½ï¿½Ó­Ê¹ï¿½ï¿½",  &Font24CN, WHITE, BLUE);
     Paint_DrawString_EN(1, 100, "WaveShare", &Font16, RED, WHITE); 
 
     // /*3.Refresh the picture in RAM to LCD*/
